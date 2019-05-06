@@ -37,7 +37,13 @@
       async login() {
        try{
          var submitLogin = await axios.post(API_URL,this.todo)
-         console.log(submitLogin)
+         console.log(submitLogin.data)
+         if(submitLogin.data.status === "nok"){
+           this.$swal("Gagal","Silahkan Cek Username & Password","error");
+         }else{
+           this.$swal("Sukses","Login Sukses","success");
+
+         }
        }catch (e) {
          console.log(e)
        }
