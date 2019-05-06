@@ -1,4 +1,4 @@
-# vue-router-01
+# Vue JS
 
 > A Vue.js project
 
