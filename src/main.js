@@ -7,19 +7,18 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import VueSweetalert2 from 'vue-sweetalert2';
 
+Vue.use(VueSweetalert2, options)
+Vue.use(VueAxios, axios);
+
+Vue.config.productionTip = false
+
 const options = {
   confirmButtonColor: '#68b3ab',
   cancelButtonColor: '#ff7674'
 }
 
-Vue.use(VueSweetalert2, options)
-Vue.use(VueAxios, axios);
-Vue.config.productionTip = false
 
-/* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,mode:history,
-  components: { App },
-  template: '<App/>'
-})
+  router,
+  render: h => h(App)
+}).$mount('#app')
