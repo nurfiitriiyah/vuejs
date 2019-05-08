@@ -2,7 +2,7 @@
   <div id="app">
     <div class="app-phone">
       <div class="phone-header">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/vue_gram_logo_cp.png" />
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/vue_gram_logo_cp.png"/>
         <a class="cancel-cta"
            v-if="step === 2 || step === 3"
            @click="goToHome">
@@ -53,6 +53,7 @@
   import posts from "./data/post";
   import filters from "./data/filters";
   import EventBus from "./event-bus.js";
+
   export default {
     name: "App",
     data() {

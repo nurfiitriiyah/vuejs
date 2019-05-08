@@ -2,13 +2,15 @@
   <div class="phone-body">
     <div v-if="step === 1" class="feed">
       <vuegram-post v-for="post in posts"
-                      :post="post"
-                      :key="posts.indexOf(post)">
+                    :post="post"
+                    :key="posts.indexOf(post)">
       </vuegram-post>
     </div>
     <div v-if="step === 2">
       <div class="selected-image"
-           :style="{ backgroundImage: 'url(' + image + ')' }"></div>
+           :class="selectedFilter"
+           :style="{ backgroundImage: 'url(' + image + ')' }">
+      </div>
       <div class="filter-container">
         <filter-type v-for="filter in filters"
                      :filter="filter"
@@ -25,7 +27,9 @@
       <div class="caption-container">
         <textarea class="caption-input"
                   placeholder="Write a caption..."
-                  type="text" :value="value" @input="$emit('input', $event.target.value)">
+                  type="text"
+                  :value="value"
+                  @input="$emit('input', $event.target.value)">
         </textarea>
       </div>
     </div>
@@ -33,22 +37,23 @@
 </template>
 
 <script>
+  import VuegramPost from "./VuegramPost";
   import FilterType from "./FilterType";
-  import VuegramPost from "./vueGramPost";
   export default {
     name: "PhoneBody",
-    components: {
-      "vuegram-post": VuegramPost,
-      "filter-type": FilterType
-    },
     props: {
       step: Number,
       posts: Array,
       filters: Array,
       image: String,
+      selectedFilter: String,
       value: String
     },
-  }
+    components: {
+      "vuegram-post": VuegramPost,
+      "filter-type": FilterType
+    }
+  };
 </script>
 
 <style lang="scss" src="../../styles/phone-body.scss">
